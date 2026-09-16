@@ -1,0 +1,86 @@
+{
+  "method_a": "lora",
+  "method_b": "gate_concat",
+  "n_seeds": 5,
+  "seeds": [
+    42,
+    123,
+    2024,
+    456,
+    789
+  ],
+  "metrics": {
+    "noisy_macro": {
+      "lora_mean": 0.7311716005581396,
+      "gate_concat_mean": 0.7476409853878272,
+      "mean_diff": 0.016469384829687562,
+      "per_seed_diff": [
+        0.03243069765704476,
+        0.0005324730870898131,
+        0.007375045923607937,
+        0.02905069792253867,
+        0.012958009558156625
+      ],
+      "paired_t_stat": 2.668047506782627,
+      "paired_t_p": 0.055919536084305395,
+      "wilcoxon_stat": 0.0,
+      "wilcoxon_p": 0.0625,
+      "significant_005_t": false,
+      "significant_005_wilcoxon": false
+    },
+    "clean_macro": {
+      "lora_mean": 0.7203098224484418,
+      "gate_concat_mean": 0.7247246840103818,
+      "mean_diff": 0.004414861561940153,
+      "per_seed_diff": [
+        0.004857781857363186,
+        -0.004533621396680787,
+        0.009993622810887781,
+        0.006588628651241213,
+        0.005167895886889373
+      ],
+      "paired_t_stat": 1.8277715674624389,
+      "paired_t_p": 0.14159337358405766,
+      "wilcoxon_stat": 1.0,
+      "wilcoxon_p": 0.125,
+      "significant_005_t": false,
+      "significant_005_wilcoxon": false
+    },
+    "noisy_weighted": {
+      "lora_mean": 0.7886683612398893,
+      "gate_concat_mean": 0.8012896791919596,
+      "mean_diff": 0.012621317952070488,
+      "per_seed_diff": [
+        0.021147290122181417,
+        0.009779822621967527,
+        0.0011245853026587982,
+        0.008567894057891157,
+        0.02248699765565354
+      ],
+      "paired_t_stat": 3.122792426701682,
+      "paired_t_p": 0.03543090974522349,
+      "wilcoxon_stat": 0.0,
+      "wilcoxon_p": 0.0625,
+      "significant_005_t": true,
+      "significant_005_wilcoxon": false
+    },
+    "clean_weighted": {
+      "lora_mean": 0.7786919681542221,
+      "gate_concat_mean": 0.7815540003387489,
+      "mean_diff": 0.002862032184526786,
+      "per_seed_diff": [
+        -0.008588476263820533,
+        0.008143702364088012,
+        0.005463739197841044,
+        -0.012030777003065984,
+        0.02132197262759139
+      ],
+      "paired_t_stat": 0.47426510216052054,
+      "paired_t_p": 0.6600409670928729,
+      "wilcoxon_stat": 7.0,
+      "wilcoxon_p": 1.0,
+      "significant_005_t": false,
+      "significant_005_wilcoxon": false
+    }
+  }
+}

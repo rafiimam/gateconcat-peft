@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Logs / local runs
+*.log
+nohup.out
+*.out
+
+# Private / non-public materials
+emails/
+archive/
+
+# Caches / IDE
+.cache/
+.pytest_cache/
+.mypy_cache/
+.idea/
+.vscode/
+*.swp
+
+# Large local dumps (summaries are kept under results/)
+**/gate_*_tokens.csv
+checkpoints/
+wandb/
+runs/
+
+# OS
+.DS_Store
+Thumbs.db

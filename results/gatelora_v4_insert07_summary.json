@@ -1,0 +1,36 @@
+{
+  "dataset": "funsd",
+  "corruption_type": "insertion",
+  "corruption_rate": 0.7,
+  "epochs": 15,
+  "seeds": [
+    42,
+    123,
+    2024,
+    456,
+    789
+  ],
+  "methods": [
+    "lora",
+    "gate_concat"
+  ],
+  "protocol": "gatelora_v4",
+  "lr": 0.0002,
+  "lora_r": 16,
+  "lora_clean_weighted_mean": 0.7795532723451059,
+  "lora_clean_macro_mean": 0.7272818085670275,
+  "lora_clean_macro_std": 0.007408194696238693,
+  "lora_noisy_weighted_mean": 0.7873410607067101,
+  "lora_noisy_macro_mean": 0.7374970545693109,
+  "lora_noisy_macro_std": 0.009886103233728316,
+  "lora_gate_auc_mean": NaN,
+  "gate_concat_clean_weighted_mean": 0.7856674869192598,
+  "gate_concat_clean_macro_mean": 0.7211557967087592,
+  "gate_concat_clean_macro_std": 0.010840131551192676,
+  "gate_concat_noisy_weighted_mean": 0.8073623994191756,
+  "gate_concat_noisy_macro_mean": 0.7445202945087488,
+  "gate_concat_noisy_macro_std": 0.0030431225991560456,
+  "gate_concat_gate_auc_mean": 0.5158705318039625,
+  "gate_concat_minus_lora_noisy_macro": 0.007023239939437875,
+  "gate_concat_minus_lora_clean_macro": -0.006126011858268332
+}
