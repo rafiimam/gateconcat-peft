@@ -128,7 +128,7 @@ Relative gain appears mainly under **severe text noise**.
 
 ### Phase E — Weekend experiments (August 27–28, 2026) **COMPLETE**
 
-Queued via `weekend_queue.sh` after OCR capacity job. All jobs finished Fri Aug 28 ~01:08.
+Queued via `scripts/weekend_queue.sh` after OCR capacity job. All jobs finished Fri Aug 28 ~01:08.
 
 #### E.1 OCR capacity control @ 70% (v3: LoRA / GateConcat / Frozen)
 
