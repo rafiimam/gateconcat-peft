@@ -30,7 +30,7 @@ We started from a **hand-crafted noise-aware PEFT recipe (SALLoRA)** that **did 
 
 Corruptions studied: **substitution**, **OCR confusion**, **box swap** (synthetic).
 
-Artifacts live in this repository (`sallora.py`, `gatelora.py`, `gatelora_v2/v3/v4.py`, `results/`).
+Artifacts live in this repository (`legacy/sallora.py`, `legacy/gatelora.py`, `legacy/gatelora_v2.py`, `gatelora_v3/v4.py`, `results/`). Phase A/B scripts moved under `legacy/` in the 2026-10-20 package refactor (see `docs/REFACTOR.md`); v3/v4 now import the shared `gateconcat/` package.
 
 ---
 
@@ -290,11 +290,11 @@ GateConcat’s benefit is best understood as a **small classifier-head augmentat
 
 | Stage | Code | Key results |
 |-------|------|-------------|
-| SALLoRA | `sallora.py` | `CONTROLLED_BENCHMARK_SALLORA.md` |
-| Early Gate/Router | `gatelora.py` | `gatelora_funsd_results_*`, `router_compare_*` |
-| Variant search | `gatelora_v2.py` | `gatelora_v2_funsd07_*`, concat sweep |
+| SALLoRA | `legacy/sallora.py` | `CONTROLLED_BENCHMARK_SALLORA.md` |
+| Early Gate/Router | `legacy/gatelora.py` | `gatelora_funsd_results_*`, `router_compare_*` |
+| Variant search | `legacy/gatelora_v2.py` | `gatelora_v2_funsd07_*`, concat sweep |
 | Capacity @ sub70% | `gatelora_v3.py` | `gatelora_v3_funsd07_*`, `GATECONCAT_V3_OUTCOME.md` |
-| Transfer + weekend | `gatelora_v4.py`, `weekend_queue.sh` | `gatelora_v4_ocr07_*`, `gatelora_v4_box05_*`, `gatelora_v3_ocr07_capacity_*`, `gatelora_v4_sub_sweep_with_frozen_*`, `gatelora_v4_insert07_*`, `gatelora_v4_delete07_*` |
+| Transfer + weekend | `gatelora_v4.py`, `scripts/weekend_queue.sh` | `gatelora_v4_ocr07_*`, `gatelora_v4_box05_*`, `gatelora_v3_ocr07_capacity_*`, `gatelora_v4_sub_sweep_with_frozen_*`, `gatelora_v4_insert07_*`, `gatelora_v4_delete07_*` |
 | Analysis | `analyze_gate_v4.py`, `analyze_significance.py` | `gate_analysis_v4_ocr/` |
 
 ---
