@@ -23,7 +23,7 @@
   "lora_noisy_weighted_mean": 0.8143118263061474,
   "lora_noisy_macro_mean": 0.7470790304289936,
   "lora_noisy_macro_std": 0.00535773901456066,
-  "lora_gate_auc_mean": NaN,
+  "lora_gate_auc_mean": null,
   "gate_concat_clean_weighted_mean": 0.8155879909235801,
   "gate_concat_clean_macro_mean": 0.7503039021194013,
   "gate_concat_clean_macro_std": 0.00753147538538877,

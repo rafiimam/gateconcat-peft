@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gateconcat"
+version = "0.2.0"
+description = "Diagnostic study of noise-aware PEFT (GateConcat) for document NER under synthetic corruption"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "MD. Rafi Imam" }]
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.36.0",
+    "peft>=0.7.0",
+    "datasets>=2.14.0",
+    "accelerate>=0.25.0",
+    "scikit-learn>=1.3.0",
+    "scipy>=1.11.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+include = ["gateconcat*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
