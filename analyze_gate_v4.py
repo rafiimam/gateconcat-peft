@@ -12,11 +12,11 @@ Correlations checked (not vs corruption labels alone):
   - mean gate on clean vs corrupted tokens
 
 Usage:
-  /home/eai/trtllm-env/bin/python -u analyze_gate_v4.py \\
+  python -u analyze_gate_v4.py \\
     --method gate_concat --corruption-type substitution --corruption-rate 0.7 \\
     --seed 42 --out-dir gate_analysis_v4
 
-  /home/eai/trtllm-env/bin/python -u analyze_gate_v4.py \\
+  python -u analyze_gate_v4.py \\
     --method gate_concat_plus --corruption-type ocr_confusion --corruption-rate 0.7 \\
     --seed 42 --out-dir gate_analysis_v4_ocr
 """
@@ -33,19 +33,14 @@ import torch
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 
-# Reuse v4 training stack (locked Config)
-from gatelora_v4 import (
-    Config,
-    DocumentDatasetWithNoise,
-    GateConcatModel,
-    GateConcatPlusModel,
-    clear_cuda,
-    load_and_prepare_dataset,
-    make_seeded_loader,
-    quality_to_clean_target,
-    set_seed,
-    train_task_only,
-)
+# Reuse the package training stack (locked Config)
+from gateconcat.config import Config
+from gateconcat.json_utils import dump_json, sanitize_for_json
+from gateconcat.data import DocumentDatasetWithNoise, load_and_prepare_dataset
+from gateconcat.losses import quality_to_clean_target
+from gateconcat.models import GateConcatModel, GateConcatPlusModel
+from gateconcat.seed import clear_cuda, set_seed
+from gateconcat.training import make_seeded_loader, train_task_only
 
 
 def build_model(method: str, num_labels: int):
@@ -184,9 +179,9 @@ if __name__ == "__main__":
     else:
         df.to_csv(csv_path, index=False)
     with open(json_path, "w") as f:
-        json.dump(summary, f, indent=2)
+        dump_json(summary, f)
 
-    print(json.dumps(summary, indent=2))
+    print(json.dumps(sanitize_for_json(summary), indent=2))
     print(f"\nWrote {csv_path}")
     print(f"Wrote {json_path}")
 
