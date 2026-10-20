@@ -28,7 +28,7 @@
   "lora_noisy_weighted_mean": 0.7953308041857605,
   "lora_noisy_macro_mean": 0.7314530707509841,
   "lora_noisy_macro_std": 0.013132506585915409,
-  "lora_gate_auc_mean": NaN,
+  "lora_gate_auc_mean": null,
   "gate_concat_clean_weighted_mean": 0.8122818615722839,
   "gate_concat_clean_macro_mean": 0.7468087523016734,
   "gate_concat_clean_macro_std": 0.003563167145479432,
@@ -44,7 +44,7 @@
   "gate_concat_frozen_noisy_weighted_mean": 0.8010903366424277,
   "gate_concat_frozen_noisy_macro_mean": 0.7387605960283412,
   "gate_concat_frozen_noisy_macro_std": 0.018198058866473747,
-  "gate_concat_frozen_gate_auc_mean": NaN,
+  "gate_concat_frozen_gate_auc_mean": null,
   "gate_concat_frozen_minus_lora_clean_macro": 0.010737154050446618,
   "gate_concat_frozen_minus_lora_noisy_macro": 0.007307525277357119
 }

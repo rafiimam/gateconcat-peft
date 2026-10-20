@@ -64,17 +64,30 @@ No per-method hyperparameter privileges.
 
 ```text
 .
-├── sallora.py                 # Phase A: SALLoRA vs LoRA (negative)
-├── gatelora.py                # Early routing / residual gating
-├── gatelora_v2.py             # Variant search; GateConcat emerges
-├── gatelora_v3.py             # Capacity + aux controls @ sub 70%
-├── gatelora_v4.py             # Transfer (OCR / box / insert / delete)
-├── analyze_significance.py    # Paired t-test / Wilcoxon on per-seed CSV
+├── gateconcat/                # Shared package (single source of truth)
+│   ├── config.py              #   Locked protocol Config
+│   ├── corruption.py          #   Synthetic noise transforms (torch-free)
+│   ├── data.py                #   FUNSD loading + noisy dataset
+│   ├── models.py              #   LoRA shell + GateConcat family
+│   ├── training.py            #   Train / evaluate loop
+│   ├── losses.py              #   CE + gate-target helpers
+│   ├── significance.py        #   Paired t-test / Wilcoxon
+│   ├── seed.py                #   Deterministic seeding
+│   └── json_utils.py          #   Strict-JSON writing (NaN -> null)
+├── gatelora_v3.py             # Experiment: capacity + aux controls @ sub 70%
+├── gatelora_v4.py             # Experiment: transfer (OCR / box / insert / delete)
+├── legacy/                    # Frozen Phase A/B monoliths (sallora, v1, v2)
+├── analyze_significance.py    # CLI wrapper over gateconcat.significance
 ├── analyze_gate_v4.py         # Token-level gate correlation dump
+├── tests/                     # Unit tests (pytest / unittest)
 ├── scripts/weekend_queue.sh   # Sequential experiment queue
-├── docs/                      # Progress report + outcome notes
+├── docs/                      # Progress report + outcome notes + REFACTOR.md
 └── results/                   # CSV / JSON summaries + per-seed tables
 ```
+
+Refactored 2026-10-20 from five duplicated monoliths into the package
+above — protocol and published results unchanged; see
+[`docs/REFACTOR.md`](docs/REFACTOR.md) for the mapping and verification.
 
 **Not included (intentionally):** personal emails, training logs, smoke pilots, `__pycache__`, large token dumps.
 
@@ -87,6 +100,8 @@ No per-method hyperparameter privileges.
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+# or, for the package + test deps:
+# pip install -e ".[test]"
 ```
 
 Hugging Face will download LayoutLMv3 and FUNSD on first run.
@@ -132,6 +147,12 @@ python -u analyze_gate_v4.py \
 ```
 
 Each full 5-seed run is multi-hour on a single consumer GPU; do not parallelize heavy jobs on one device.
+
+Run the unit tests (light tests need only numpy/pandas/scipy):
+
+```bash
+python -m pytest tests/ -q
+```
 
 ---
 
